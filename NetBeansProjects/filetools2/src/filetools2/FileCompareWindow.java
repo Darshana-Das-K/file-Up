@@ -414,8 +414,8 @@ public class FileCompareWindow extends javax.swing.JFrame {
         System.out.println(size2);
         size= size1>size2 ? size1 : size2;
         System.out.println(size);
-        Compare.fileCompare(folderpath1, folderpath2,size);
-        int val=Compare.flag;
+        int val = Compare.fileCompare(folderpath1, folderpath2,size);
+        //int val=Compare.flag;
         
         if(val==0){
              JOptionPane.showMessageDialog(null,"None of the files in the folders are equal");

@@ -17,27 +17,29 @@ public class FileComparison {
       String[] equalFiles1;
       String[] equalFiles2;
       int flag;
-      public void fileCompare(String path1, String path2,int size){
+      public int fileCompare(String path1, String path2,int size){
           int i,j,k=0;
           flag=0;
           equalFiles1 = new String[size];
           equalFiles2 = new String[size];
-   /*   File file1 = new File(path1);
+      File file1 = new File(path1);
       File file2 = new File(path2);
       File[] array_file1=file1.listFiles();
-      File[] array_file2=file2.listFiles();*/
-    FileCompareWindow w= new FileCompareWindow(); 
+      File[] array_file2=file2.listFiles();
+    //FileCompareWindow w= new FileCompareWindow(); 
      
-      for(i=0;i<w.size1;i++){
-         for(j=0;j<w.size2;j++){
+      for(i=0;i<array_file1.length;i++){
+         for(j=0;j<array_file2.length;j++){
              System.out.println(flag);
+             String n1=array_file1[i].getName();
+      String n2=array_file2[i].getName();
 
          
 
     //  DateFormat sdf
       //      = new SimpleDateFormat("MM-dd-yyyy hh:mm a");
-      String n1= w.row1[i];
-      String n2= w.row2[j];
+     // String n1= w.row1[i];
+     // String n2= w.row2[j];
       System.out.println(n1+n2);
       if (n1.equals(n2)) {
           flag++;
@@ -77,7 +79,7 @@ public class FileComparison {
       //    System.out.println("Both the folders not equal");
           
      // }
-     // return flag;
+      return flag;
 }
     
     
