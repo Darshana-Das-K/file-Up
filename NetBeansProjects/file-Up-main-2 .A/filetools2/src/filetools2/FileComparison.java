@@ -52,11 +52,13 @@ public class FileComparison {
                 System.out.print(sdf.format(time1));
                 long time2 = array_file2[j].lastModified();
                 System.out.print(sdf.format(time2));
-                String t1 = String.valueOf(time1);	
-                String t2 = String.valueOf(time2);	
-                if (t1.compareTo(t2) < 0){
-                     lastModifiedFilesB[p]= array_file1[i];
-                     firstModifiedFilesA[p]= array_file2[j];
+               // String t1 = String.valueOf(time1);	
+               // String t2 = String.valueOf(time2);	
+                if (time1<time2){
+                       firstModifiedFilesA [p]= array_file1[i];
+                     lastModifiedFilesB[p]= array_file2[j];
+                     System.out.println("The file A is not last modified");
+                     p++;
                 }
                 else{
                     System.out.println("not equal");
@@ -67,10 +69,10 @@ public class FileComparison {
         }
       }
  
-      System.out.println("the array is");
-      for(i=0;i<flag;i++){
-          System.out.println(equalFiles2[i]);
-      }
+      //System.out.println("the array is");
+     // for(File file: lastModifiedFilesB){
+       //   System.out.println("kakakakaka"+file);
+      //}
      
       return flag;
   }

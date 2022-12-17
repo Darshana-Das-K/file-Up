@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import filetools2.FileCompareWindow;
 import static filetools2.FileComparison.equalFiles1;
+import static filetools2.FileComparison.lastModifiedFilesB;
 import java.awt.HeadlessException;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -54,7 +55,7 @@ public class FileEqualWindow extends javax.swing.JFrame {
         
         
        // FileComparison c = new FileComparison();
-       System.out.println("the folderpath 1 in FIleCompareWindow is "+filetools2.FileCompareWindow.directory1);
+      // System.out.println("the folderpath 1 in FIleCompareWindow is "+filetools2.FileCompareWindow.directory1);
 
         filetools2.FileComparison.fileCompare(filetools2.FileCompareWindow.directory1,filetools2.FileCompareWindow.directory2);
          
@@ -65,7 +66,7 @@ public class FileEqualWindow extends javax.swing.JFrame {
         for (File file : filetools2.FileComparison.equalFiles1 ) {
             
             if(file!=null){
-                System.out.println("file is " +file);
+              //  System.out.println("file is " +file);
                 String name=file.getName();
                     String modifiedDate=sdf.format(file.lastModified());
                     String type=Files.probeContentType(file.toPath());
@@ -79,6 +80,7 @@ public class FileEqualWindow extends javax.swing.JFrame {
                //         pathArray1[j]= file.getAbsolutePath() ;
                 //    }
                      model1.addRow(data);
+                     
                
         
               // row3[k]= file.getName() ;
@@ -96,7 +98,7 @@ public class FileEqualWindow extends javax.swing.JFrame {
         
         for(int i=0;i<filetools2.FileComparison.flag;i++){
             
-            System.out.println("The files are "+filetools2.FileComparison.equalFiles1[i]);
+          //  System.out.println("The files are "+filetools2.FileComparison.equalFiles1[i]);
         }
         
        /* for (File file : c.equalFiles1 ) {
@@ -132,7 +134,7 @@ public class FileEqualWindow extends javax.swing.JFrame {
         for (File file : filetools2.FileComparison.equalFiles2 ) {
             
             if(file!=null){
-                System.out.println("file is " +file);
+            //    System.out.println("file is " +file);
                 String name1=file.getName();
                     String modifiedDate1=sdf.format(file.lastModified());
                     String type1=Files.probeContentType(file.toPath());
@@ -333,48 +335,60 @@ public class FileEqualWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
        
         
-        for(int i=0;i<filetools2.FileComparison.equalFiles1.length;i++){
+      //  for(int i=0;i<filetools2.FileComparison.equalFiles1.length;i++){
         
         int p=0;
-        System.out.println(""+filetools2.FileComparison.firstModifiedFilesA.length);
+       // System.out.println(""+filetools2.FileComparison.firstModifiedFilesA.length);
+       //Can print firstModifiedFilesA,lastmodifiedFilesB
+        
         copyFiles = new File[filetools2.FileComparison.firstModifiedFilesA.length];
-        System.out.println(filetools2.FileComparison.firstModifiedFilesA.length);
+        
+       // System.out.println(filetools2.FileComparison.firstModifiedFilesA.length);
         for(File f : filetools2.FileComparison.firstModifiedFilesA){
-            if(f.exists()){
+           
                 copyFiles[p]= f;
                 p++;
-            }
+           
             
         }
-        for(File f : copyFiles){
-            System.out.println("Cpy files is "+f);
-            
-        }
+        //if f.exists is not given as a condition, copyFiles is succesfully printed
+          
+        
         for (File f : filetools2.FileComparison.firstModifiedFilesA) {
-             if(f.exists()){
+            try{
+                if(f.exists()){
                 f.delete();
             }
-        if(filetools2.FileComparison.lastModifiedFilesB[i].exists() ){
-           // File source = new File(filetools2.FileComparison.lastModifiedFilesB[i].getAbsolutePath());
-       // File dest = new File (filetools2.FileComparison.firstModifiedFilesA[i].getAbsolutePath());
-         Path sourceDirectory = Paths.get(filetools2.FileComparison.lastModifiedFilesB[i].getAbsolutePath());
-        Path targetDirectory = Paths.get(copyFiles[i].getAbsolutePath());
-        
+            }
+            catch(Exception e){
+            }
+             
+        }
+      //  int s=0;
+        int size = filetools2.FileComparison.firstModifiedFilesA.length;
+        System.out.println("Size is"+ size);
+        for(int s=0;s<size;s++){
             try {
-                Files.copy(sourceDirectory,targetDirectory);
-            } catch (IOException ex) {
+                Path sourceDirectory = Paths.get(filetools2.FileComparison.lastModifiedFilesB[s].getAbsolutePath());
+                Path targetDirectory = Paths.get(copyFiles[s].getAbsolutePath());
+
+                Files.copy(sourceDirectory, targetDirectory);
+            }
+            
+            catch (IOException ex) {
                 Logger.getLogger(FileEqualWindow.class.getName()).log(Level.SEVERE, null, ex);
             }
-        
-        }
-        
+
+                
             
         }
+
+     
 
         
         
     }//GEN-LAST:event_syncButtonActionPerformed
-    }
+   
     /**
      * @param args the command line arguments
      */
