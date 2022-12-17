@@ -349,30 +349,21 @@ public class FileCompareWindow extends javax.swing.JFrame {
     chooser.setAcceptAllFileFilterUsed(false);
     //    
     if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) { 
-     // System.out.println("getCurrentDirectory(): " 
-      //   +  chooser.getCurrentDirectory());
-      //System.out.println("getSelectedFile() : " 
-        // +  chooser.getSelectedFile());
+    
       folderpath2 = chooser.getSelectedFile().getAbsolutePath();
       File2TextField.setText(folderpath2);            
       }   
-    else {
-     // System.out.println("No Selection ");
-      }
+    
     
     }//GEN-LAST:event_File2BrowseButtonActionPerformed
 
     private void file1BrowseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_file1BrowseButtonActionPerformed
 
         JFileChooser chooser = new JFileChooser();
-       //  String choosertitle="hi";
-      /*  chooser.showOpenDialog(null);
-        Folder f1 = chooser.getSelectedFile();
-        String filename1 = f1.getAbsolutePath();
-        File1TextField.setText(filename1);*/
+       
       chooser.setCurrentDirectory(new java.io.File("."));
       chooser.setDialogTitle("select folder");
-    //  chooser.setDialogTitle(choosertitle);
+
     chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
     //
     // disable the "All files" option.
@@ -380,10 +371,7 @@ public class FileCompareWindow extends javax.swing.JFrame {
     chooser.setAcceptAllFileFilterUsed(false);
     //    
     if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) { 
-  //    System.out.println("getCurrentDirectory(): " 
-   //      +  chooser.getCurrentDirectory());
-   //   System.out.println("getSelectedFile() : " 
-  //       +  chooser.getSelectedFile());
+ 
       folderpath1 = chooser.getSelectedFile().getAbsolutePath();
       File1TextField.setText(folderpath1);
       
@@ -407,50 +395,7 @@ public class FileCompareWindow extends javax.swing.JFrame {
 
     private void UploadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadButtonActionPerformed
        UploadTable();
-      /*   try{
-           // Path path = Paths.get(folderpath1);
-           File directory1=new File(folderpath1);
-           size1=directory1.list().length;
-          
-           File[] listOfFiles1 = directory1.listFiles();
-           for (File file : listOfFiles1) {
-               
-               if (file.isFile()) {
-                   row1= new String[size1];
-                   pathArray= new String[size1];
-               //System.out.println(file.getName());
-               
-               DefaultTableModel model = (DefaultTableModel)folder1table.getModel();
-               for(int i=0; i < size1;i++){
-                   row1[i]= file.getName() ;                                                                             
-               }
-               for(int i=0; i < size1;i++){
-                   pathArray[i]= file.getAbsolutePath() ;                                                                             
-               }
-               model.addRow(row1);
-            }            
-           }
-           File directory2=new File(folderpath2);
-           size2=directory2.list().length;
-          
-           File[] listOfFiles2 = directory2.listFiles();
-           for (File file : listOfFiles2) {
-               
-               if (file.isFile()) {
-                   row2= new String[size2];
-               System.out.println(file.getName());
-               DefaultTableModel model = (DefaultTableModel)folder2table.getModel();
-               for(int i=0; i < size2;i++){
-                   row2[i]= file.getName() ;                                                                             
-               }
-               model.addRow(row2);
-            }            
-           }
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null,"File Not Found");
-            
-        }*/
+      
         
     }//GEN-LAST:event_UploadButtonActionPerformed
 

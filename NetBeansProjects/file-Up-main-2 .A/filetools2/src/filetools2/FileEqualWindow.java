@@ -208,11 +208,11 @@ public class FileEqualWindow extends javax.swing.JFrame {
 
             },
             new String [] {
-                "FolderA", "Title 2", "Title 3", "Title 4"
+                "Name", "Date Modified", "Type", "Size"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true, true
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -226,11 +226,11 @@ public class FileEqualWindow extends javax.swing.JFrame {
 
             },
             new String [] {
-                "FolderB", "Title 2", "Title 3", "Title 4"
+                "Name", "Date Modified", "Type", "Size"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true, true
+                false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -309,9 +309,10 @@ public class FileEqualWindow extends javax.swing.JFrame {
           
             if(f.exists()){
                 f.delete();
+                JOptionPane.showMessageDialog(null,"File deleted successfully from folder A!");
             }
         } // filetools2.FileComparison.fileCompare(filetools2.FileCompareWindow.directory1,filetools2.FileCompareWindow.directory2);
-        JOptionPane.showMessageDialog(null,"File delete successfully!");
+        
         }
         catch(HeadlessException e){
             
@@ -322,13 +323,20 @@ public class FileEqualWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteAButtonActionPerformed
 
     private void deleteBButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBButtonActionPerformed
-         for (File f : filetools2.FileComparison.equalFiles2) {
-             if(f.exists()){
+         try{
+            for (File f : filetools2.FileComparison.equalFiles2) {
+          
+            if(f.exists()){
                 f.delete();
+                JOptionPane.showMessageDialog(null,"File deleted successfully from folder A!");
             }
-             
-         }
-         JOptionPane.showMessageDialog(null,"File delete successfully!");
+        } // filetools2.FileComparison.fileCompare(filetools2.FileCompareWindow.directory1,filetools2.FileCompareWindow.directory2);
+        
+        }
+        catch(HeadlessException e){
+            
+        }
+        
     }//GEN-LAST:event_deleteBButtonActionPerformed
 
     private void syncButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_syncButtonActionPerformed
@@ -365,6 +373,7 @@ public class FileEqualWindow extends javax.swing.JFrame {
              
         }
       //  int s=0;
+      int count =0;
         int size = filetools2.FileComparison.firstModifiedFilesA.length;
         System.out.println("Size is"+ size);
         for(int s=0;s<size;s++){
@@ -373,6 +382,7 @@ public class FileEqualWindow extends javax.swing.JFrame {
                 Path targetDirectory = Paths.get(copyFiles[s].getAbsolutePath());
 
                 Files.copy(sourceDirectory, targetDirectory);
+                count =1;
             }
             
             catch (IOException ex) {
@@ -382,6 +392,7 @@ public class FileEqualWindow extends javax.swing.JFrame {
                 
             
         }
+        JOptionPane.showMessageDialog(null,"File Synced successfully from folder B to A!");
 
      
 
