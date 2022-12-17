@@ -40,7 +40,7 @@ public class HomeWindow extends javax.swing.JFrame {
         FileComparisonButton = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         MassRenamingButton = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        compareDataButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -121,12 +121,12 @@ public class HomeWindow extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
-        jButton6.setText("Compare Data");
-        jButton6.setToolTipText("");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        compareDataButton.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
+        compareDataButton.setText("Compare Data");
+        compareDataButton.setToolTipText("");
+        compareDataButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                compareDataButtonActionPerformed(evt);
             }
         });
 
@@ -156,7 +156,7 @@ public class HomeWindow extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(MassRenamingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(compareDataButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(FileComparisonButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -176,7 +176,7 @@ public class HomeWindow extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(FileComparisonButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(compareDataButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(82, Short.MAX_VALUE))
@@ -221,12 +221,13 @@ public class HomeWindow extends javax.swing.JFrame {
         w2.setVisible(true);
     }//GEN-LAST:event_MassRenamingButtonActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void compareDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compareDataButtonActionPerformed
         // TODO add your handling code here:
+        
         dispose();
-        MassRenamingWindow w2 = new MassRenamingWindow();
+        FilterWindow1 w2 = new FilterWindow1();
         w2.setVisible(true);
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_compareDataButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,10 +273,10 @@ public class HomeWindow extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.JButton compareDataButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;

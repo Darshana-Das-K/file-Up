@@ -197,6 +197,7 @@ public class FileEqualWindow extends javax.swing.JFrame {
         deleteAButton = new javax.swing.JButton();
         deleteBButton = new javax.swing.JButton();
         syncButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -260,6 +261,13 @@ public class FileEqualWindow extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("< Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -281,11 +289,17 @@ public class FileEqualWindow extends javax.swing.JFrame {
                             .addComponent(deleteAButton)
                             .addComponent(syncButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,7 +311,7 @@ public class FileEqualWindow extends javax.swing.JFrame {
                 .addComponent(deleteBButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(syncButton)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         pack();
@@ -399,6 +413,13 @@ public class FileEqualWindow extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_syncButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        FileCompareWindow w = new FileCompareWindow();
+        w.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
    
     /**
      * @param args the command line arguments
@@ -453,6 +474,7 @@ public class FileEqualWindow extends javax.swing.JFrame {
     private javax.swing.JButton deleteBButton;
     private javax.swing.JTable fileEqualTable1;
     private javax.swing.JTable fileEqualTable2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
